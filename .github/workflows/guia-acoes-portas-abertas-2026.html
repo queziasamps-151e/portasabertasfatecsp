@@ -1,0 +1,1678 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Guia de Ações — Portas Abertas 2026 | Fatec SP</title>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=Noto+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --r: #B20000;
+  --r-light: #D42020;
+  --dark: #1A1A1A;
+  --mid: #3D3D3D;
+  --cinza: #666;
+  --borda: #E5E5E5;
+  --bg: #F4F2EE;
+  --white: #FFFFFF;
+  --verde: #059669;
+  --ambar: #D97706;
+  --azul: #1D4ED8;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'Noto Sans',sans-serif;background:var(--bg);color:var(--dark);overflow-x:hidden}
+
+/* ── PROGRESS BAR ── */
+#progress-bar{
+  position:fixed;top:0;left:0;height:3px;
+  background:var(--r);width:0%;z-index:9999;
+  transition:width 0.1s;
+}
+
+/* ── NAV ── */
+nav{
+  position:fixed;top:3px;left:0;right:0;z-index:500;
+  background:rgba(244,242,238,0.94);backdrop-filter:blur(16px);
+  border-bottom:1px solid var(--borda);
+  padding:0 48px;height:60px;
+  display:flex;align-items:center;justify-content:space-between;
+}
+.nav-logo{display:flex;align-items:center;gap:12px}
+.nav-logo img{height:28px}
+.nav-title{
+  font-family:'Syne',sans-serif;font-size:12px;font-weight:700;
+  letter-spacing:0.06em;text-transform:uppercase;color:var(--mid);
+  border-left:2px solid var(--r);padding-left:12px;
+}
+.nav-right{
+  display:flex;align-items:center;gap:16px;
+}
+.progress-label{
+  font-size:11px;font-weight:600;color:var(--cinza);
+  letter-spacing:0.04em;
+}
+.progress-label span{color:var(--r);font-weight:700}
+.btn-print{
+  font-size:11px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;
+  background:var(--dark);color:white;padding:7px 16px;
+  border:none;cursor:pointer;border-radius:2px;
+  transition:background 0.2s;
+}
+.btn-print:hover{background:var(--r)}
+
+/* ── HERO ── */
+.hero{
+  background:var(--dark);
+  padding:100px 80px 72px;
+  position:relative;overflow:hidden;
+}
+.hero-lines{
+  position:absolute;inset:0;overflow:hidden;opacity:0.06;
+}
+.hero-lines svg{width:100%;height:100%}
+.hero-eyebrow{
+  display:flex;align-items:center;gap:12px;
+  margin-bottom:32px;
+  animation:up 0.7s ease forwards;opacity:0;
+}
+.hero-chip{
+  font-size:10px;font-weight:700;letter-spacing:0.16em;text-transform:uppercase;
+  color:rgba(255,255,255,0.5);border:1px solid rgba(255,255,255,0.15);
+  padding:4px 12px;border-radius:100px;
+}
+.hero-event{
+  font-size:10px;font-weight:700;letter-spacing:0.1em;color:var(--r);
+  display:flex;align-items:center;gap:6px;
+}
+.hero-event::before{
+  content:'';width:5px;height:5px;border-radius:50%;
+  background:var(--r);animation:pulse 2s infinite;
+}
+.hero-h1{
+  font-family:'Syne',sans-serif;
+  font-size:clamp(44px,7vw,96px);font-weight:800;
+  color:white;line-height:0.92;letter-spacing:-0.03em;
+  margin-bottom:32px;
+  animation:up 0.7s ease 0.1s forwards;opacity:0;
+}
+.hero-h1 em{font-style:normal;color:rgba(255,255,255,0.2);font-weight:400}
+.hero-h1 .red{color:var(--r)}
+.hero-bottom{
+  display:flex;align-items:flex-end;justify-content:space-between;
+  animation:up 0.7s ease 0.2s forwards;opacity:0;
+}
+.hero-desc{
+  max-width:480px;font-size:15px;line-height:1.8;
+  color:rgba(255,255,255,0.45);font-weight:300;
+}
+.hero-stats{
+  display:flex;gap:32px;
+}
+.hero-stat{text-align:right}
+.hero-stat-n{
+  font-family:'Syne',sans-serif;font-size:36px;font-weight:800;
+  color:white;line-height:1;
+}
+.hero-stat-l{
+  font-size:10px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;
+  color:rgba(255,255,255,0.3);
+}
+
+/* ── FASE HEADERS ── */
+.fase-header{
+  padding:0 80px;
+  position:sticky;top:63px;z-index:400;
+  border-bottom:1px solid var(--borda);
+}
+.fase-header-inner{
+  max-width:1100px;margin:0 auto;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:16px 0;
+}
+.fase-badge{
+  display:flex;align-items:center;gap:12px;
+}
+.fase-dot{
+  width:10px;height:10px;border-radius:50%;flex-shrink:0;
+}
+.fase-name{
+  font-family:'Syne',sans-serif;font-size:14px;font-weight:700;
+  letter-spacing:0.02em;
+}
+.fase-period{
+  font-size:11px;font-weight:600;letter-spacing:0.06em;text-transform:uppercase;
+  color:var(--cinza);
+}
+.fase-critico{background:rgba(178,0,0,0.08)}
+.fase-alta{background:rgba(217,119,6,0.07)}
+.fase-evento{background:var(--dark)}
+.fase-critico .fase-dot{background:var(--r)}
+.fase-alta .fase-dot{background:var(--ambar)}
+.fase-evento .fase-dot{background:#4ADE80}
+.fase-critico .fase-name{color:var(--r)}
+.fase-alta .fase-name{color:var(--ambar)}
+.fase-evento .fase-name{color:white}
+.fase-evento .fase-period{color:rgba(255,255,255,0.4)}
+
+/* ── SECTION ── */
+.section{
+  padding:60px 80px;
+  max-width:1100px;margin:0 auto;
+}
+
+.section-intro{
+  display:flex;align-items:flex-start;justify-content:space-between;
+  gap:48px;margin-bottom:48px;
+}
+.section-intro-left{flex:1}
+.section-label{
+  font-size:10px;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;
+  color:var(--r);display:flex;align-items:center;gap:8px;margin-bottom:10px;
+}
+.section-label::before{content:'';width:20px;height:2px;background:var(--r)}
+.section-title{
+  font-family:'Syne',sans-serif;
+  font-size:clamp(28px,4vw,44px);font-weight:800;
+  line-height:1.0;letter-spacing:-0.02em;color:var(--dark);
+  margin-bottom:12px;
+}
+.section-desc{
+  font-size:14px;line-height:1.8;color:var(--cinza);
+  font-weight:300;max-width:560px;
+}
+.section-meta{
+  flex-shrink:0;
+  display:flex;flex-direction:column;gap:8px;align-items:flex-end;
+}
+.meta-chip{
+  font-size:10px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;
+  padding:5px 12px;border-radius:100px;
+}
+.chip-critico{background:rgba(178,0,0,0.1);color:var(--r)}
+.chip-alta{background:rgba(217,119,6,0.1);color:var(--ambar)}
+.chip-evento{background:rgba(5,150,105,0.1);color:var(--verde)}
+
+/* ── AÇÃO CARD ── */
+.acoes-list{display:flex;flex-direction:column;gap:2px}
+
+.acao-card{
+  background:var(--white);
+  border:1px solid var(--borda);
+  border-left:4px solid var(--borda);
+  border-radius:2px;
+  overflow:hidden;
+  transition:box-shadow 0.2s,border-left-color 0.2s;
+  cursor:pointer;
+}
+.acao-card:hover{box-shadow:0 8px 32px rgba(0,0,0,0.08)}
+.acao-card.done{background:#F9FFF9;border-left-color:var(--verde)}
+.acao-card.done .acao-header{opacity:0.6}
+
+.acao-header{
+  display:flex;align-items:center;gap:20px;
+  padding:20px 24px;
+  transition:opacity 0.2s;
+}
+.acao-check{
+  width:28px;height:28px;flex-shrink:0;
+  border:2px solid var(--borda);border-radius:6px;
+  display:flex;align-items:center;justify-content:center;
+  transition:all 0.25s;background:transparent;
+}
+.acao-card.done .acao-check{background:var(--verde);border-color:var(--verde)}
+.acao-check-icon{
+  width:14px;height:14px;opacity:0;transform:scale(0.5);
+  transition:all 0.2s;stroke:white;fill:none;
+  stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round;
+}
+.acao-card.done .acao-check-icon{opacity:1;transform:scale(1)}
+
+.acao-main{flex:1;min-width:0}
+.acao-top{display:flex;align-items:center;gap:10px;margin-bottom:4px;flex-wrap:wrap}
+.acao-num{
+  font-size:10px;font-weight:700;letter-spacing:0.1em;
+  color:rgba(255,255,255,0.9);background:var(--cinza);
+  padding:2px 8px;border-radius:100px;flex-shrink:0;
+}
+.acao-card.done .acao-num{background:var(--verde)}
+.acao-titulo{
+  font-family:'Syne',sans-serif;font-size:15px;font-weight:700;
+  color:var(--dark);
+}
+.acao-card.done .acao-titulo{text-decoration:line-through;color:var(--cinza)}
+.acao-meta{
+  display:flex;align-items:center;gap:16px;flex-wrap:wrap;
+}
+.acao-tag{
+  font-size:11px;font-weight:600;letter-spacing:0.04em;
+  display:flex;align-items:center;gap:5px;color:var(--cinza);
+}
+.acao-tag svg{width:12px;height:12px;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round}
+.tag-who{color:var(--azul)}
+.tag-when{color:var(--ambar)}
+.tag-time{color:var(--verde)}
+
+.acao-expand-btn{
+  font-size:11px;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;
+  color:var(--cinza);display:flex;align-items:center;gap:4px;
+  flex-shrink:0;transition:color 0.2s;
+  background:none;border:none;cursor:pointer;padding:0;
+}
+.acao-expand-btn:hover{color:var(--r)}
+.expand-arrow{
+  width:14px;height:14px;transition:transform 0.3s;
+  stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;
+}
+.acao-card.open .expand-arrow{transform:rotate(180deg)}
+
+/* ── DETALHE ── */
+.acao-detalhe{
+  max-height:0;overflow:hidden;
+  transition:max-height 0.4s ease;
+  border-top:0px solid var(--borda);
+}
+.acao-card.open .acao-detalhe{
+  max-height:600px;
+  border-top:1px solid var(--borda);
+}
+.acao-detalhe-inner{
+  padding:24px 24px 24px 72px;
+  display:grid;grid-template-columns:1fr auto;gap:24px;
+}
+.passos{display:flex;flex-direction:column;gap:0}
+.passo{
+  display:flex;gap:16px;
+  padding:14px 0;
+  border-bottom:1px solid var(--borda);
+}
+.passo:last-child{border-bottom:none}
+.passo-n{
+  width:24px;height:24px;flex-shrink:0;
+  background:var(--dark);border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
+  font-size:10px;font-weight:700;color:white;margin-top:1px;
+}
+.passo-body{}
+.passo-title{
+  font-size:13px;font-weight:600;color:var(--dark);margin-bottom:3px;
+}
+.passo-desc{
+  font-size:12px;line-height:1.7;color:var(--cinza);
+}
+.passo-desc code{
+  background:#f0f0f0;padding:1px 6px;border-radius:3px;
+  font-size:11px;color:var(--mid);font-family:monospace;
+}
+
+.acao-aside{
+  flex-shrink:0;width:220px;
+  display:flex;flex-direction:column;gap:10px;
+}
+.aside-block{
+  background:var(--bg);border:1px solid var(--borda);
+  border-radius:4px;padding:14px;
+}
+.aside-label{
+  font-size:9px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;
+  color:var(--cinza);margin-bottom:6px;
+}
+.aside-content{font-size:12px;line-height:1.6;color:var(--mid)}
+.aside-content strong{color:var(--dark);font-weight:600}
+
+.msg-copy{
+  background:var(--dark);border-radius:4px;padding:14px;
+  position:relative;
+}
+.msg-copy-label{
+  font-size:9px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;
+  color:rgba(255,255,255,0.4);margin-bottom:8px;
+}
+.msg-text{
+  font-size:11px;line-height:1.7;color:rgba(255,255,255,0.7);
+  font-style:italic;
+}
+.copy-btn{
+  position:absolute;top:10px;right:10px;
+  background:var(--r);color:white;
+  font-size:9px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;
+  padding:4px 8px;border-radius:2px;border:none;cursor:pointer;
+  transition:background 0.2s;
+}
+.copy-btn:hover{background:var(--r-light)}
+.copy-btn.copied{background:var(--verde)}
+
+/* ── SEPARADORES ── */
+.fase-sep{
+  margin:0 80px;
+  height:1px;background:var(--borda);
+}
+
+/* ── EVENTO DESTAQUE ── */
+.evento-section{
+  background:var(--dark);
+  padding:60px 80px;
+}
+.evento-inner{
+  max-width:1100px;margin:0 auto;
+  display:flex;align-items:center;justify-content:space-between;gap:48px;
+}
+.evento-left .section-label{color:rgba(255,255,255,0.3)}
+.evento-left .section-label::before{background:rgba(255,255,255,0.2)}
+.evento-left .section-title{color:white}
+.evento-left .section-desc{color:rgba(255,255,255,0.4)}
+.evento-acoes{
+  display:flex;flex-direction:column;gap:8px;
+  flex-shrink:0;width:340px;
+}
+.evento-acao{
+  background:rgba(255,255,255,0.06);
+  border:1px solid rgba(255,255,255,0.1);
+  border-radius:4px;padding:14px 18px;
+  display:flex;align-items:center;gap:12px;
+}
+.evento-acao-icon{font-size:18px}
+.evento-acao-text{font-size:12px;color:rgba(255,255,255,0.6);line-height:1.5}
+.evento-acao-text strong{color:white;display:block;font-size:13px;margin-bottom:2px}
+
+/* ── PROGRESSO TOTAL ── */
+.progress-section{
+  position:sticky;bottom:0;z-index:300;
+  background:rgba(244,242,238,0.96);backdrop-filter:blur(16px);
+  border-top:1px solid var(--borda);
+  padding:12px 80px;
+}
+.progress-inner{
+  max-width:1100px;margin:0 auto;
+  display:flex;align-items:center;gap:20px;
+}
+.prog-label{font-size:12px;font-weight:600;color:var(--cinza);white-space:nowrap}
+.prog-label span{color:var(--dark);font-weight:700}
+.prog-bar-bg{
+  flex:1;height:6px;background:var(--borda);border-radius:100px;overflow:hidden;
+}
+.prog-bar-fill{
+  height:100%;background:var(--verde);border-radius:100px;
+  width:0%;transition:width 0.4s ease;
+}
+.prog-pct{
+  font-family:'Syne',sans-serif;font-size:14px;font-weight:800;
+  color:var(--dark);white-space:nowrap;min-width:40px;text-align:right;
+}
+
+/* ── FOOTER ── */
+footer{
+  background:var(--dark);padding:32px 80px;
+  display:flex;justify-content:space-between;align-items:center;
+}
+footer img{height:28px;filter:brightness(0) invert(1);opacity:0.3}
+footer span{font-size:11px;color:rgba(255,255,255,0.2);letter-spacing:0.06em}
+
+/* ── ANIMATIONS ── */
+@keyframes up{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}
+@keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:0.4;transform:scale(1.5)}}
+.reveal{opacity:0;transform:translateY(20px);transition:opacity 0.6s ease,transform 0.6s ease}
+.reveal.visible{opacity:1;transform:translateY(0)}
+.d1{transition-delay:0.1s}.d2{transition-delay:0.2s}.d3{transition-delay:0.3s}
+
+@media print{
+  nav,#progress-bar,.progress-section,.acao-expand-btn,.copy-btn{display:none!important}
+  .acao-detalhe{max-height:none!important;border-top:1px solid #eee!important}
+  .acao-card{break-inside:avoid;page-break-inside:avoid}
+  .fase-header{position:static}
+  body{background:white}
+}
+@media(max-width:900px){
+  nav{padding:0 20px}.hero,.section,.evento-section,.progress-section,.fase-header,.fase-sep{padding-left:20px;padding-right:20px}
+  .acao-detalhe-inner{grid-template-columns:1fr;padding-left:24px}
+  .acao-aside{width:100%}
+  .hero-stats{display:none}
+  .section-intro{flex-direction:column;gap:16px}
+}
+</style>
+</head>
+<body>
+
+<div id="progress-bar"></div>
+
+<nav>
+  <div class="nav-logo">
+    <img src="data:image/png;base64,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aYT+TUQcR9MonpYthT5LnffJ7t74YTQdmfsR8VnRomhtJoRthk7pMn6IJnRNShfC1dJ9cWd3bzyKZgZ/J4bVR1hW7wZ1hS9YoTQiczyQEPZzRDzuwygUdUkjysfR/K6Notl/eT/92effuV650Cm9H03H9E7RorrvRTQzwY8dolGX6XLEaJYk7kQTwsz+Xu5VpDa+j4O6wheswUwIm3Yo+tLAvoimQXzcxwaR+qQOzeP0ijSbshXNpve70Z/fvd66EKbvRtMpvR+C9JR2t2dm+gib8W7gYejX+5tIbXnfH0UjfMEapQbkcWpgp0ulamtgf46ISbjxU4F0jR7P/m+pQ383mhMU70bEKISyTkpLuB9Gs1fmbrxbXjq0GTHt7gCkn+10T+sQr/dX0QSuSd8D16x5w9fztVYBPZca2NkOxU40o/NdbGBfRHPTn0TTIHZ9aUvX26euf/96L3XoL71O0uEPEU0w25z5v6YhLTfXSzLzc9ufmdGcvmobxLrJ03jX5k7KlkIJA7ne38Tv+xddv3+vxXtv374tXQMM1oUlUluRP4y9iIjTaBr8SUQ8ryBsAQOX2s5pu1nb8tIX0bS5z6Npcydly6HrKl5O/TSaPsYkmmt9kGHrIuELOibNjG3Gu2VSm+n/WqSxnT7Y9CzejfxPIuJMIwj0SeqgbkbTSZ3+/W6UOUnxVTSdzunreUScandZlQt9hZLLqd9Eur7DtT4X4QsA6LWZYBbxxyWlWy3f7jS9LvtvqwcoLgWzUXrdnfm/NuP3y6tvMjtwe/G/T+1HXIzwBQAAkMGfShcAAAAwBMIXAABABsIXAABABsIXAABABsIXAABABsIXAABABsIXAABABsIXAABABsIXAABABsIXAABABsIXAABABsIXAABABsIXAABABsIXAABABsIXAABABsIXAABABsIXAABABsIXAABABsIXAABABsIXAABABsIXAABABsIXAABABsIXAABABsIXAABABsIXAABABsIXAABABsIXAABABsIXAABABsIXAABABsIXAABABsIXAABABsIXAABABsIXAABABsIXAABABsIXAABABsIXAABABu+XLgAAcjgZbdyOiNvpP+9d8c9eR8TL9Pdn22fnr9deGACD8d7bt29L1wAAK3Uy2vggIj6JJmRNXx8s+HZPIuJZej0RyABYlPAFQG+cjDYe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hC8AAIAMhC8AAIAMhC8AAIAMhC8AAIAMhC8AAIAMhC8AAIAMhC8AAIAMhC8AAIAMhC8AAIAMhC8AAIAMhC8AAIAMhC8AAIAMhC8AAIAMhC8AAIAMhC8AAIAMhC8AAIAMhC8AAIAMhC8AAIAMhC8AAIAMhC8AAIAMhC8AAIAMhC8AAIAMhC8AAIAMhC8AAIAMhC8AAIAMhC8AAIAMhC8AAIAMhC8AAIAMhC8AAIAMhC8AAIAMhC8AAIAMhC8AAIAMhC8AAIAMhC8AAIAMhC8AAIAMhC8AAIAMhC8AAIAMhC8AAIAMhC8AAIAMhC8AAIAMhC8AAIAMhC8AAIAMhC8AAIAMhC8AAIAMhC8AAIAMhC8AAIAMhC8AAIAMhC8AAIAMhC8AAIAMhC8AAIAMhC8AAIAMhC8AAIAMhC8AAIAMhC8AAIAMhC8AAIAMhC8AAIAMhC8AAIAMhC8AAIAMhC8AAIAMhC8AAIAMhC8AAIAMhC8AAIAMhC8AAIAMhC8AAIAMhC8AAIAMhC8AAIAMhC8AAIAMhC8AAIAMhC8AAIAMhC8AAIAMhC8AAIAMhC8AAIAMhC8AAIAMhC8AAIAMhC8AAIAMhC8AAIAMhC8AAIAMhC8AAIAMhC8AAIAMhC8AAIAMhC8AAIAMhC8AAIAMhC8AAIAMhC8AAIAMhC8AAIAMhC8AAIAMhC8AAIAMhC8AAIAMhC8AAIAMhC8AAIAMhC8AAIAMhC8AAIAMhC8AAIAMhC8AAIAMhC8AAIAMhC8AAIAMhC8AAIAMhC8AAIAMhC8AAIAMhC8AAIAMhC8AAIAMhC8AAIAMhC8AAIAMhC8AAIAMhC8AAIAMhC8AAIAMhC8AAIAMhC8AAIAMhC8AAIAMhC8AAIAMhC8AAIAMhC8AAIAMhC8AAIAMhC8AAIAMhC8AAIAMhC8AAIAMhC8AAIAMhC8AAIAMhC8AAIAMhC8AAIAMhC8AAIAMhC8AAIAMhC8AAIAMhC8AAIAMhC8AAIAMhC8AAIAMhC8AAIAMhC8AAIAMhC8AAIAMhC8AAIAMhC8AAIAMhC8AAIAMhC8AAIAMhC8AAIAMhC8AAIAMhC8AAIAMhC8AAIAMhC8AAIAMhC8AAIAMhC8AAIAMhC8AAIAMhC8AAIAMhC8AAIAMhC8AAIAMhC8AAIAMhC8AAIAMhC8AAIAMhC8AAIAMhC8AAIAMhC8AAIAMhC8AAIAMhC8AAIAMhC8AAIAMhC8AAIAMhC8AAIAMhC8AAIAMhC8AAIAMhC8AAIAMhC8AAIAMhC8AAIAMhC8AAIAMhC8AAIAMhC8AAIAMhC8AAIAMhC8AAIAMhC8AAIAMhC8AAIAMhC8AAIAMhC8AAIAMhC8AAIAMhC8AAIAMhC8AAIAM/j/+Ti7rSr+1JwAAAABJRU5ErkJggg==" alt="Fatec SP">
+    <div class="nav-title">Guia de Ações · Portas Abertas 2026</div>
+  </div>
+  <div class="nav-right">
+    <div class="progress-label">Concluído: <span id="nav-count">0</span> de 14</div>
+    <button class="btn-print" onclick="window.print()">🖨 Imprimir PDF</button>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-lines">
+    <svg viewBox="0 0 1400 500" preserveAspectRatio="xMidYMid slice">
+      <defs><pattern id="g" width="60" height="60" patternUnits="userSpaceOnUse"><path d="M 60 0 L 0 0 0 60" fill="none" stroke="rgba(255,255,255,0.5)" stroke-width="0.5"/></pattern></defs>
+      <rect width="100%" height="100%" fill="url(#g)"/>
+      <circle cx="1100" cy="80" r="160" fill="none" stroke="rgba(178,0,0,0.5)" stroke-width="1"/>
+      <circle cx="1100" cy="80" r="100" fill="none" stroke="rgba(178,0,0,0.3)" stroke-width="1"/>
+    </svg>
+  </div>
+  <div class="hero-eyebrow">
+    <div class="hero-chip">Uso Interno · Professores e Coordenadores</div>
+    <div class="hero-event">Campanha 01/03 – 09/05/2026</div>
+  </div>
+  <h1 class="hero-h1">O que fazer.<br><em>Quem faz.</em><br>Quando <span class="red">e como.</span></h1>
+  <div class="hero-bottom">
+    <p class="hero-desc">Este guia não tem estratégia. Tem ação. Cada tarefa tem responsável, data e passo a passo. Se você leu, você já sabe o que fazer hoje.</p>
+    <div class="hero-stats">
+      <div class="hero-stat">
+        <div class="hero-stat-n">14</div>
+        <div class="hero-stat-l">Ações</div>
+      </div>
+      <div class="hero-stat">
+        <div class="hero-stat-n">70</div>
+        <div class="hero-stat-l">Dias</div>
+      </div>
+      <div class="hero-stat">
+        <div class="hero-stat-n">09/05</div>
+        <div class="hero-stat-l">Evento</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════
+     FASE 1 — CRÍTICO: ANTES DE MARÇO
+════════════════════════════════════ -->
+<div class="fase-header fase-critico">
+  <div class="fase-header-inner">
+    <div class="fase-badge">
+      <div class="fase-dot"></div>
+      <div class="fase-name">Fase 1 — O Básico (Não Negociável)</div>
+    </div>
+    <div class="fase-period">01 – 21 de Março · Prioridade: CRÍTICO</div>
+  </div>
+</div>
+
+<div class="section reveal">
+  <div class="section-intro">
+    <div class="section-intro-left">
+      <div class="section-label">Fase 1</div>
+      <h2 class="section-title">Antes de qualquer<br>divulgação, isso precisa existir.</h2>
+      <p class="section-desc">Se qualquer um desses 4 itens não estiver pronto até 21/03, a campanha não começa. Não é atraso — é falta de base.</p>
+    </div>
+    <div class="section-meta">
+      <div class="meta-chip chip-critico">⚠ Crítico</div>
+      <div class="meta-chip" style="background:#eee;color:var(--cinza)">4 ações</div>
+    </div>
+  </div>
+
+  <div class="acoes-list">
+
+    <!-- Ação 1 -->
+    <div class="acao-card" onclick="toggleAcao(this)">
+      <div class="acao-header">
+        <div class="acao-check" onclick="toggleDone(event,this)">
+          <svg class="acao-check-icon" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+        </div>
+        <div class="acao-main">
+          <div class="acao-top">
+            <div class="acao-num">01</div>
+            <div class="acao-titulo">Colocar hotsite no ar com data, local e link de inscrição</div>
+          </div>
+          <div class="acao-meta">
+            <div class="acao-tag tag-who">
+              <svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>
+              TI / Responsável de Comunicação
+            </div>
+            <div class="acao-tag tag-when">
+              <svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+              Até 07 de Março
+            </div>
+            <div class="acao-tag tag-time">
+              <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><polyline points="12 7 12 12 15 15"/></svg>
+              ~2h para montar
+            </div>
+          </div>
+        </div>
+        <button class="acao-expand-btn">
+          Ver como
+          <svg class="expand-arrow" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+      </div>
+      <div class="acao-detalhe">
+        <div class="acao-detalhe-inner">
+          <div class="passos">
+            <div class="passo">
+              <div class="passo-n">1</div>
+              <div class="passo-body">
+                <div class="passo-title">Criar página simples no site da Fatec SP ou Google Sites</div>
+                <div class="passo-desc">Não precisa ser bonito. Precisa ter: nome do evento, data (09/05/2026), horário (09h às 16h), endereço (Av. Tiradentes, 615), e botão de inscrição.</div>
+              </div>
+            </div>
+            <div class="passo">
+              <div class="passo-n">2</div>
+              <div class="passo-body">
+                <div class="passo-title">Criar formulário de inscrição no Google Forms</div>
+                <div class="passo-desc">Campos mínimos: nome, escola de origem, curso de interesse e se vem em grupo. Compartilhar o link com a comissão para revisão.</div>
+              </div>
+            </div>
+            <div class="passo">
+              <div class="passo-n">3</div>
+              <div class="passo-body">
+                <div class="passo-title">Testar o link em celular antes de publicar</div>
+                <div class="passo-desc">Abrir no próprio celular e verificar se carrega, se o botão funciona e se o formulário abre. 90% dos acessos vão ser pelo celular.</div>
+              </div>
+            </div>
+            <div class="passo">
+              <div class="passo-n">4</div>
+              <div class="passo-body">
+                <div class="passo-title">Enviar o link para a comissão confirmando que está no ar</div>
+                <div class="passo-desc">Mensagem no grupo: <em>"Hotsite no ar: [link]. Formulário funcionando. Testado no celular."</em></div>
+              </div>
+            </div>
+          </div>
+          <div class="acao-aside">
+            <div class="aside-block">
+              <div class="aside-label">Ferramentas sugeridas</div>
+              <div class="aside-content">
+                <strong>Google Sites</strong> — gratuito, sem precisar de TI<br><br>
+                <strong>Google Forms</strong> — inscrições automáticas em planilha<br><br>
+                <strong>Canva</strong> — para uma capa visual simples
+              </div>
+            </div>
+            <div class="msg-copy">
+              <div class="msg-copy-label">Mensagem para o grupo</div>
+              <div class="msg-text">"Hotsite do Portas Abertas no ar ✅ Link: [url]. Formulário de inscrição funcionando. Testem no celular e me avisem qualquer problema."</div>
+              <button class="copy-btn" onclick="copyMsg(event, this)">Copiar</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Ação 2 -->
+    <div class="acao-card" onclick="toggleAcao(this)">
+      <div class="acao-header">
+        <div class="acao-check" onclick="toggleDone(event,this)">
+          <svg class="acao-check-icon" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+        </div>
+        <div class="acao-main">
+          <div class="acao-top">
+            <div class="acao-num">02</div>
+            <div class="acao-titulo">Definir um responsável por cada canal com nome e prazo</div>
+          </div>
+          <div class="acao-meta">
+            <div class="acao-tag tag-who">
+              <svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>
+              Coordenação Geral do Evento
+            </div>
+            <div class="acao-tag tag-when">
+              <svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+              Até 03 de Março
+            </div>
+            <div class="acao-tag tag-time">
+              <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><polyline points="12 7 12 12 15 15"/></svg>
+              30 minutos de reunião
+            </div>
+          </div>
+        </div>
+        <button class="acao-expand-btn">
+          Ver como
+          <svg class="expand-arrow" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+      </div>
+      <div class="acao-detalhe">
+        <div class="acao-detalhe-inner">
+          <div class="passos">
+            <div class="passo">
+              <div class="passo-n">1</div>
+              <div class="passo-body">
+                <div class="passo-title">Preencher a tabela de responsáveis (4 canais, 4 nomes)</div>
+                <div class="passo-desc">Instagram: quem posta. Mailing escolas: quem envia. WhatsApp interno: quem dispara. Arauto/murais: quem imprime e fixa. Sem nome = não acontece.</div>
+              </div>
+            </div>
+            <div class="passo">
+              <div class="passo-n">2</div>
+              <div class="passo-body">
+                <div class="passo-title">Criar grupo de WhatsApp "Comissão Portas Abertas 2026"</div>
+                <div class="passo-desc">Somente os responsáveis designados. Grupo para alinhamento rápido — não para discussão. Máximo 8 pessoas.</div>
+              </div>
+            </div>
+            <div class="passo">
+              <div class="passo-n">3</div>
+              <div class="passo-body">
+                <div class="passo-title">Cada responsável confirma sua tarefa por escrito no grupo</div>
+                <div class="passo-desc">Uma linha: <em>"Responsável pelo Instagram. Primeira postagem: 01/04."</em> Sem confirmação escrita, a tarefa não foi aceita.</div>
+              </div>
+            </div>
+          </div>
+          <div class="acao-aside">
+            <div class="aside-block">
+              <div class="aside-label">Canais a cobrir</div>
+              <div class="aside-content">
+                📲 <strong>Instagram</strong> — 1 responsável<br>
+                📧 <strong>Mailing SEDUC</strong> — 1 responsável<br>
+                💬 <strong>WhatsApp interno</strong> — 1 responsável<br>
+                🏛 <strong>Murais / Arauto</strong> — 1 responsável
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Ação 3 -->
+    <div class="acao-card" onclick="toggleAcao(this)">
+      <div class="acao-header">
+        <div class="acao-check" onclick="toggleDone(event,this)">
+          <svg class="acao-check-icon" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+        </div>
+        <div class="acao-main">
+          <div class="acao-top">
+            <div class="acao-num">03</div>
+            <div class="acao-titulo">Organizar a lista de contatos das escolas da SEDUC</div>
+          </div>
+          <div class="acao-meta">
+            <div class="acao-tag tag-who">
+              <svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>
+              Secretaria / Responsável pelo Mailing
+            </div>
+            <div class="acao-tag tag-when">
+              <svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+              Até 21 de Março
+            </div>
+            <div class="acao-tag tag-time">
+              <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><polyline points="12 7 12 12 15 15"/></svg>
+              ~3h para organizar
+            </div>
+          </div>
+        </div>
+        <button class="acao-expand-btn">
+          Ver como
+          <svg class="expand-arrow" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+      </div>
+      <div class="acao-detalhe">
+        <div class="acao-detalhe-inner">
+          <div class="passos">
+            <div class="passo">
+              <div class="passo-n">1</div>
+              <div class="passo-body">
+                <div class="passo-title">Abrir a lista existente e verificar se os e-mails são de diretores ou coordenadores</div>
+                <div class="passo-desc">E-mail genérico de escola (secretaria@escola.sp.gov.br) tem taxa de resposta muito baixa. Priorizar contatos nominais de coordenadores pedagógicos.</div>
+              </div>
+            </div>
+            <div class="passo">
+              <div class="passo-n">2</div>
+              <div class="passo-body">
+                <div class="passo-title">Filtrar por proximidade geográfica</div>
+                <div class="passo-desc">Escolas públicas estaduais a até 10 km da Fatec SP têm maior probabilidade de trazer alunos. Priorizar Centro, Bom Retiro, Brás, Mooca, Lapa, Pinheiros, Vila Mariana.</div>
+              </div>
+            </div>
+            <div class="passo">
+              <div class="passo-n">3</div>
+              <div class="passo-body">
+                <div class="passo-title">Separar coluna "WhatsApp" da coluna "E-mail"</div>
+                <div class="passo-desc">Manter planilha com: nome da escola · nome do diretor · e-mail · WhatsApp (se tiver) · região. Compartilhar no Google Sheets com a comissão.</div>
+              </div>
+            </div>
+          </div>
+          <div class="acao-aside">
+            <div class="aside-block">
+              <div class="aside-label">Meta mínima</div>
+              <div class="aside-content">
+                <strong>50 escolas</strong> com e-mail válido de contato direto antes do primeiro envio (05/04).
+              </div>
+            </div>
+            <div class="aside-block">
+              <div class="aside-label">Fonte dos dados</div>
+              <div class="aside-content">Lista SEDUC já existente + busca no site <strong>educacao.sp.gov.br</strong> por escola e diretor.
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Ação 4 -->
+    <div class="acao-card" onclick="toggleAcao(this)">
+      <div class="acao-header">
+        <div class="acao-check" onclick="toggleDone(event,this)">
+          <svg class="acao-check-icon" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+        </div>
+        <div class="acao-main">
+          <div class="acao-top">
+            <div class="acao-num">04</div>
+            <div class="acao-titulo">Comunicar alunos e professores internamente</div>
+          </div>
+          <div class="acao-meta">
+            <div class="acao-tag tag-who">
+              <svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>
+              Cada coordenador de curso
+            </div>
+            <div class="acao-tag tag-when">
+              <svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+              Na primeira semana de Março
+            </div>
+            <div class="acao-tag tag-time">
+              <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><polyline points="12 7 12 12 15 15"/></svg>
+              5 minutos em sala
+            </div>
+          </div>
+        </div>
+        <button class="acao-expand-btn">
+          Ver como
+          <svg class="expand-arrow" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+      </div>
+      <div class="acao-detalhe">
+        <div class="acao-detalhe-inner">
+          <div class="passos">
+            <div class="passo">
+              <div class="passo-n">1</div>
+              <div class="passo-body">
+                <div class="passo-title">Reservar 5 minutos na primeira aula de março</div>
+                <div class="passo-desc">Não precisa de apresentação. Basta falar: "Dia 09 de maio temos o Portas Abertas. Precisamos de vocês para divulgar. Quem quer ajudar?"</div>
+              </div>
+            </div>
+            <div class="passo">
+              <div class="passo-n">2</div>
+              <div class="passo-body">
+                <div class="passo-title">Enviar mensagem no grupo da turma pelo WhatsApp</div>
+                <div class="passo-desc">Usar a mensagem pronta ao lado. Não inventar texto — copiar, colar e enviar. O link do hotsite precisa estar no ar antes disso.</div>
+              </div>
+            </div>
+            <div class="passo">
+              <div class="passo-n">3</div>
+              <div class="passo-body">
+                <div class="passo-title">Pedir para alunos mandarem para amigos do ensino médio</div>
+                <div class="passo-desc">Frase exata: <em>"Manda pro grupo do seu primo/amigo que tá no 3º ano."</em> Simples. Direto. Funciona.</div>
+              </div>
+            </div>
+          </div>
+          <div class="acao-aside">
+            <div class="msg-copy">
+              <div class="msg-copy-label">Mensagem pronta — copie e envie</div>
+              <div class="msg-text">"Olá turma! 🎓 No dia 09/05 a Fatec SP abre as portas para quem quer conhecer a faculdade. Se você tem amigos ou parentes no 3º ano do ensino médio, manda o link: [hotsite]. É gratuito, das 9h às 16h, aqui no Bom Retiro."</div>
+              <button class="copy-btn" onclick="copyMsg(event, this)">Copiar</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<div class="fase-sep"></div>
+
+<!-- ════════════════════════════════
+     FASE 2 — MOBILIZAÇÃO
+════════════════════════════════ -->
+<div class="fase-header fase-alta">
+  <div class="fase-header-inner">
+    <div class="fase-badge">
+      <div class="fase-dot"></div>
+      <div class="fase-name">Fase 2 — Mobilização Interna</div>
+    </div>
+    <div class="fase-period">22 de Março – 04 de Abril · Prioridade: ALTA</div>
+  </div>
+</div>
+
+<div class="section reveal">
+  <div class="section-intro">
+    <div class="section-intro-left">
+      <div class="section-label">Fase 2</div>
+      <h2 class="section-title">Engajar coordenadores<br>de curso agora.</h2>
+      <p class="section-desc">Quando o kit visual estiver pronto, ele precisa chegar nas mãos de quem vai usar. Sem essa reunião, o kit fica no servidor e ninguém vê.</p>
+    </div>
+    <div class="section-meta">
+      <div class="meta-chip chip-alta">↑ Alta</div>
+      <div class="meta-chip" style="background:#eee;color:var(--cinza)">3 ações</div>
+    </div>
+  </div>
+
+  <div class="acoes-list">
+
+    <!-- Ação 5 -->
+    <div class="acao-card" onclick="toggleAcao(this)">
+      <div class="acao-header">
+        <div class="acao-check" onclick="toggleDone(event,this)">
+          <svg class="acao-check-icon" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+        </div>
+        <div class="acao-main">
+          <div class="acao-top">
+            <div class="acao-num">05</div>
+            <div class="acao-titulo">Reunião de 30 min com todos os coordenadores de curso</div>
+          </div>
+          <div class="acao-meta">
+            <div class="acao-tag tag-who">
+              <svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>
+              Comissão Organizadora + Coordenadores
+            </div>
+            <div class="acao-tag tag-when">
+              <svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+              Semana de 22 a 28 de Março
+            </div>
+            <div class="acao-tag tag-time">
+              <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><polyline points="12 7 12 12 15 15"/></svg>
+              30 minutos
+            </div>
+          </div>
+        </div>
+        <button class="acao-expand-btn">
+          Ver como
+          <svg class="expand-arrow" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+      </div>
+      <div class="acao-detalhe">
+        <div class="acao-detalhe-inner">
+          <div class="passos">
+            <div class="passo">
+              <div class="passo-n">1</div>
+              <div class="passo-body">
+                <div class="passo-title">Agendar via e-mail institucional com 1 semana de antecedência</div>
+                <div class="passo-desc">Assunto do e-mail: <code>Portas Abertas 2026 — Reunião obrigatória 30min [data]</code>. Incluir link do hotsite já funcionando para mostrar que o básico está feito.</div>
+              </div>
+            </div>
+            <div class="passo">
+              <div class="passo-n">2</div>
+              <div class="passo-body">
+                <div class="passo-title">Na reunião: entregar o kit físico e mostrar o digital</div>
+                <div class="passo-desc">Cada coordenador recebe uma folha com: as artes do seu curso (QR code para download), o cronograma de postagens (3 datas), e a mensagem pronta para mandar no grupo de alunos.</div>
+              </div>
+            </div>
+            <div class="passo">
+              <div class="passo-n">3</div>
+              <div class="passo-body">
+                <div class="passo-title">Antes de sair da reunião: cada coordenador confirma as 3 datas de postagem</div>
+                <div class="passo-desc">Confirmar verbalmente não basta. Pedir para escrever no papel ou mandar mensagem no grupo da comissão: <em>"[Nome] · [Curso] · Posto em: 05/04, 20/04 e 04/05."</em></div>
+              </div>
+            </div>
+          </div>
+          <div class="acao-aside">
+            <div class="aside-block">
+              <div class="aside-label">Pauta da reunião (30 min)</div>
+              <div class="aside-content">
+                <strong>0–5min:</strong> Contexto (sem enrolação)<br>
+                <strong>5–15min:</strong> Mostrar o kit e as artes<br>
+                <strong>15–25min:</strong> Tirar dúvidas práticas<br>
+                <strong>25–30min:</strong> Confirmar as 3 datas
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Ação 6 -->
+    <div class="acao-card" onclick="toggleAcao(this)">
+      <div class="acao-header">
+        <div class="acao-check" onclick="toggleDone(event,this)">
+          <svg class="acao-check-icon" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+        </div>
+        <div class="acao-main">
+          <div class="acao-top">
+            <div class="acao-num">06</div>
+            <div class="acao-titulo">Enviar kit visual por WhatsApp para cada coordenador</div>
+          </div>
+          <div class="acao-meta">
+            <div class="acao-tag tag-who">
+              <svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>
+              Responsável pelo Kit (Comunicação)
+            </div>
+            <div class="acao-tag tag-when">
+              <svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+              Até 04 de Abril
+            </div>
+            <div class="acao-tag tag-time">
+              <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><polyline points="12 7 12 12 15 15"/></svg>
+              ~1h para enviar tudo
+            </div>
+          </div>
+        </div>
+        <button class="acao-expand-btn">
+          Ver como
+          <svg class="expand-arrow" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+      </div>
+      <div class="acao-detalhe">
+        <div class="acao-detalhe-inner">
+          <div class="passos">
+            <div class="passo">
+              <div class="passo-n">1</div>
+              <div class="passo-body">
+                <div class="passo-title">Criar pasta no Google Drive com uma subpasta por curso</div>
+                <div class="passo-desc">Estrutura: <code>Portas Abertas 2026 / Kits / [Nome do Curso]</code>. Dentro: 1 arte de feed (JPG), 1 story (JPG), legenda pronta (TXT), mensagem para grupos (TXT).</div>
+              </div>
+            </div>
+            <div class="passo">
+              <div class="passo-n">2</div>
+              <div class="passo-body">
+                <div class="passo-title">Mandar o link da pasta direto no WhatsApp de cada coordenador</div>
+                <div class="passo-desc">Mensagem individual, não grupo. Mensagem personalizada com o nome do curso. Confirmar que a pessoa conseguiu abrir os arquivos.</div>
+              </div>
+            </div>
+            <div class="passo">
+              <div class="passo-n">3</div>
+              <div class="passo-body">
+                <div class="passo-title">Confirmar recebimento: pedir print da arte salva no celular</div>
+                <div class="passo-desc">Se o coordenador salvou no celular, a chance de postar aumenta muito. Se só abriu o link, provavelmente vai esquecer.</div>
+              </div>
+            </div>
+          </div>
+          <div class="acao-aside">
+            <div class="msg-copy">
+              <div class="msg-copy-label">Mensagem individual — adapte o [Curso]</div>
+              <div class="msg-text">"Olá! Aqui estão as artes prontas para divulgação do Portas Abertas pelo curso de [Curso]: [link do Drive]. Tem a imagem de feed, story e a legenda já escrita. Só salvar no celular e postar no dia 05/04. Qualquer dúvida me chama 👍"</div>
+              <button class="copy-btn" onclick="copyMsg(event, this)">Copiar</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Ação 7 -->
+    <div class="acao-card" onclick="toggleAcao(this)">
+      <div class="acao-header">
+        <div class="acao-check" onclick="toggleDone(event,this)">
+          <svg class="acao-check-icon" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+        </div>
+        <div class="acao-main">
+          <div class="acao-top">
+            <div class="acao-num">07</div>
+            <div class="acao-titulo">Fixar arautos e materiais físicos nos murais da Fatec SP</div>
+          </div>
+          <div class="acao-meta">
+            <div class="acao-tag tag-who">
+              <svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>
+              Responsável por Murais
+            </div>
+            <div class="acao-tag tag-when">
+              <svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+              Até 01 de Abril
+            </div>
+            <div class="acao-tag tag-time">
+              <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><polyline points="12 7 12 12 15 15"/></svg>
+              ~2h para imprimir e fixar
+            </div>
+          </div>
+        </div>
+        <button class="acao-expand-btn">
+          Ver como
+          <svg class="expand-arrow" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+      </div>
+      <div class="acao-detalhe">
+        <div class="acao-detalhe-inner">
+          <div class="passos">
+            <div class="passo">
+              <div class="passo-n">1</div>
+              <div class="passo-body">
+                <div class="passo-title">Imprimir o Key Visual em A3 (mínimo 5 cópias)</div>
+                <div class="passo-desc">Pontos obrigatórios: hall de entrada, refeitório, corredor de salas, biblioteca, banheiros dos andares. Onde as pessoas param e esperam.</div>
+              </div>
+            </div>
+            <div class="passo">
+              <div class="passo-n">2</div>
+              <div class="passo-body">
+                <div class="passo-title">Incluir QR Code que leva direto ao hotsite/inscrição</div>
+                <div class="passo-desc">Gerar QR code gratuito em qr-code-generator.com e adicionar ao arquivo antes de imprimir. Testar se o QR code abre no celular antes de imprimir.</div>
+              </div>
+            </div>
+            <div class="passo">
+              <div class="passo-n">3</div>
+              <div class="passo-body">
+                <div class="passo-title">Atualizar os murais em 05/04 e 03/05 com versões novas</div>
+                <div class="passo-desc">Material velho desgasta. Trocar os impressos em cada onda do mailing garante que o mural sempre parece novo e relevante.</div>
+              </div>
+            </div>
+          </div>
+          <div class="acao-aside">
+            <div class="aside-block">
+              <div class="aside-label">Locais prioritários</div>
+              <div class="aside-content">
+                🚪 Hall de entrada<br>
+                🍽 Refeitório<br>
+                📚 Biblioteca<br>
+                🚶 Corredores principais<br>
+                🚻 Banheiros (sim)
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<div class="fase-sep"></div>
+
+<!-- ════════════════════════════════
+     FASE 3 — LANÇAMENTO EXTERNO
+════════════════════════════════ -->
+<div class="fase-header fase-alta">
+  <div class="fase-header-inner">
+    <div class="fase-badge">
+      <div class="fase-dot"></div>
+      <div class="fase-name">Fase 3 — Lançamento Externo</div>
+    </div>
+    <div class="fase-period">05 – 15 de Abril · 1ª Onda de Mailing</div>
+  </div>
+</div>
+
+<div class="section reveal">
+  <div class="section-intro">
+    <div class="section-intro-left">
+      <div class="section-label">Fase 3</div>
+      <h2 class="section-title">Chegar nas escolas<br>antes de todo mundo.</h2>
+      <p class="section-desc">Primeira onda de contato externo. O convite oficial vai para diretores — e cada coordenador de curso posta pela primeira vez nas redes.</p>
+    </div>
+    <div class="section-meta">
+      <div class="meta-chip chip-alta">↑ Alta</div>
+      <div class="meta-chip" style="background:#eee;color:var(--cinza)">3 ações</div>
+    </div>
+  </div>
+
+  <div class="acoes-list">
+
+    <!-- Ação 8 -->
+    <div class="acao-card" onclick="toggleAcao(this)">
+      <div class="acao-header">
+        <div class="acao-check" onclick="toggleDone(event,this)">
+          <svg class="acao-check-icon" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+        </div>
+        <div class="acao-main">
+          <div class="acao-top">
+            <div class="acao-num">08</div>
+            <div class="acao-titulo">Enviar 1ª onda de mailing para diretores das escolas</div>
+          </div>
+          <div class="acao-meta">
+            <div class="acao-tag tag-who">
+              <svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>
+              Responsável pelo Mailing
+            </div>
+            <div class="acao-tag tag-when">
+              <svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+              05 de Abril (terça-feira)
+            </div>
+            <div class="acao-tag tag-time">
+              <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><polyline points="12 7 12 12 15 15"/></svg>
+              ~1h para disparar
+            </div>
+          </div>
+        </div>
+        <button class="acao-expand-btn">
+          Ver como
+          <svg class="expand-arrow" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+      </div>
+      <div class="acao-detalhe">
+        <div class="acao-detalhe-inner">
+          <div class="passos">
+            <div class="passo">
+              <div class="passo-n">1</div>
+              <div class="passo-body">
+                <div class="passo-title">Usar o modelo de carta convite com PDF anexado</div>
+                <div class="passo-desc">Assunto: <code>Convite Oficial — Portas Abertas Fatec SP: 09 de Maio</code>. Anexar o PDF do convite. Não enviar e-mail sem anexo.</div>
+              </div>
+            </div>
+            <div class="passo">
+              <div class="passo-n">2</div>
+              <div class="passo-body">
+                <div class="passo-title">Enviar entre 08h e 10h da manhã</div>
+                <div class="passo-desc">E-mails enviados de manhã cedo têm taxa de abertura significativamente maior. Evitar sexta-feira e segunda-feira.</div>
+              </div>
+            </div>
+            <div class="passo">
+              <div class="passo-n">3</div>
+              <div class="passo-body">
+                <div class="passo-title">Registrar: data de envio, número de e-mails enviados, plataforma usada</div>
+                <div class="passo-desc">Anotar na planilha da lista: coluna "Envio 1 — 05/04". Marcar com ✓. Isso é necessário para o 2º envio ser diferente e não duplicar contatos.</div>
+              </div>
+            </div>
+          </div>
+          <div class="acao-aside">
+            <div class="aside-block">
+              <div class="aside-label">Ferramentas de envio</div>
+              <div class="aside-content">
+                <strong>Gmail</strong> (até 50/dia gratuito)<br>
+                <strong>MailerLite</strong> (até 1.000 gratuito)<br>
+                <strong>Brevo</strong> (até 300/dia gratuito)
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Ação 9 -->
+    <div class="acao-card" onclick="toggleAcao(this)">
+      <div class="acao-header">
+        <div class="acao-check" onclick="toggleDone(event,this)">
+          <svg class="acao-check-icon" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+        </div>
+        <div class="acao-main">
+          <div class="acao-top">
+            <div class="acao-num">09</div>
+            <div class="acao-titulo">Cada coordenador posta a arte do seu curso no Instagram</div>
+          </div>
+          <div class="acao-meta">
+            <div class="acao-tag tag-who">
+              <svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>
+              Todos os coordenadores de curso
+            </div>
+            <div class="acao-tag tag-when">
+              <svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+              05 de Abril
+            </div>
+            <div class="acao-tag tag-time">
+              <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><polyline points="12 7 12 12 15 15"/></svg>
+              3 minutos por pessoa
+            </div>
+          </div>
+        </div>
+        <button class="acao-expand-btn">
+          Ver como
+          <svg class="expand-arrow" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+      </div>
+      <div class="acao-detalhe">
+        <div class="acao-detalhe-inner">
+          <div class="passos">
+            <div class="passo">
+              <div class="passo-n">1</div>
+              <div class="passo-body">
+                <div class="passo-title">Abrir o celular, ir na pasta recebida e salvar a imagem</div>
+                <div class="passo-desc">A arte já está no Google Drive enviado na Ação 06. Baixar no celular antes do dia 05.</div>
+              </div>
+            </div>
+            <div class="passo">
+              <div class="passo-n">2</div>
+              <div class="passo-body">
+                <div class="passo-title">Postar no Instagram pessoal ou do curso com a legenda pronta</div>
+                <div class="passo-desc">A legenda já está no arquivo TXT da pasta. Copiar, colar, adicionar os hashtags sugeridos: <code>#FatecSP #PortasAbertas2026 #[NomeDoCurso]</code></div>
+              </div>
+            </div>
+            <div class="passo">
+              <div class="passo-n">3</div>
+              <div class="passo-body">
+                <div class="passo-title">Avisar no grupo da comissão que postou</div>
+                <div class="passo-desc">Mensagem: <em>"[Nome] — [Curso] postado ✅"</em>. Isso cria responsabilidade coletiva — quem não postou vê quem já postou.</div>
+              </div>
+            </div>
+          </div>
+          <div class="acao-aside">
+            <div class="msg-copy">
+              <div class="msg-copy-label">Legenda pronta para copiar</div>
+              <div class="msg-text">"🎓 O curso de [Nome do Curso] da Fatec SP abre as portas no dia 09 de maio! Venha conhecer nossos laboratórios, falar com alunos e entender como é estudar aqui. Entrada gratuita, das 9h às 16h. Link na bio! #FatecSP #PortasAbertas2026"</div>
+              <button class="copy-btn" onclick="copyMsg(event, this)">Copiar</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Ação 10 -->
+    <div class="acao-card" onclick="toggleAcao(this)">
+      <div class="acao-header">
+        <div class="acao-check" onclick="toggleDone(event,this)">
+          <svg class="acao-check-icon" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+        </div>
+        <div class="acao-main">
+          <div class="acao-top">
+            <div class="acao-num">10</div>
+            <div class="acao-titulo">Verificar inscrições recebidas e responder escolas interessadas</div>
+          </div>
+          <div class="acao-meta">
+            <div class="acao-tag tag-who">
+              <svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>
+              Responsável pelo Mailing
+            </div>
+            <div class="acao-tag tag-when">
+              <svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+              08 a 15 de Abril (toda a semana)
+            </div>
+            <div class="acao-tag tag-time">
+              <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><polyline points="12 7 12 12 15 15"/></svg>
+              10 min/dia
+            </div>
+          </div>
+        </div>
+        <button class="acao-expand-btn">
+          Ver como
+          <svg class="expand-arrow" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+      </div>
+      <div class="acao-detalhe">
+        <div class="acao-detalhe-inner">
+          <div class="passos">
+            <div class="passo">
+              <div class="passo-n">1</div>
+              <div class="passo-body">
+                <div class="passo-title">Verificar o formulário de inscrição uma vez por dia</div>
+                <div class="passo-desc">Abrir a planilha do Google Forms diariamente às 08h. Verificar novas inscrições. Anotar escolas que confirmaram grupo.</div>
+              </div>
+            </div>
+            <div class="passo">
+              <div class="passo-n">2</div>
+              <div class="passo-body">
+                <div class="passo-title">Responder e-mails de escolas em até 24 horas</div>
+                <div class="passo-desc">Escola que manda e-mail está interessada. Não responder em 24h é perder o contato. Usar mensagem padrão de confirmação — sem precisar escrever do zero.</div>
+              </div>
+            </div>
+          </div>
+          <div class="acao-aside">
+            <div class="msg-copy">
+              <div class="msg-copy-label">Resposta padrão para escolas</div>
+              <div class="msg-text">"Olá [Nome da escola], fico muito feliz com o interesse! A inscrição do grupo está confirmada para o dia 09/05, das 9h às 16h. Chegando na Fatec SP (Av. Tiradentes, 615), é só procurar a recepção do evento. Qualquer dúvida, estou à disposição."</div>
+              <button class="copy-btn" onclick="copyMsg(event, this)">Copiar</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<div class="fase-sep"></div>
+
+<!-- ════════════════════════════════
+     FASE 4 — INTENSIFICAÇÃO
+════════════════════════════════ -->
+<div class="fase-header fase-alta">
+  <div class="fase-header-inner">
+    <div class="fase-badge">
+      <div class="fase-dot"></div>
+      <div class="fase-name">Fase 4 — Intensificação</div>
+    </div>
+    <div class="fase-period">16 de Abril – 08 de Maio · 2ª e 3ª Ondas</div>
+  </div>
+</div>
+
+<div class="section reveal">
+  <div class="section-intro">
+    <div class="section-intro-left">
+      <div class="section-label">Fase 4</div>
+      <h2 class="section-title">O segundo envio<br>é o mais importante.</h2>
+      <p class="section-desc">Quem não respondeu ao primeiro ainda pode ser convertido. Quem respondeu precisa de confirmação logística. São públicos diferentes, na mesma mensagem.</p>
+    </div>
+    <div class="section-meta">
+      <div class="meta-chip chip-alta">↑ Alta</div>
+      <div class="meta-chip" style="background:#eee;color:var(--cinza)">3 ações</div>
+    </div>
+  </div>
+
+  <div class="acoes-list">
+
+    <!-- Ação 11 -->
+    <div class="acao-card" onclick="toggleAcao(this)">
+      <div class="acao-header">
+        <div class="acao-check" onclick="toggleDone(event,this)">
+          <svg class="acao-check-icon" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+        </div>
+        <div class="acao-main">
+          <div class="acao-top">
+            <div class="acao-num">11</div>
+            <div class="acao-titulo">Enviar 2ª onda de mailing com novidade concreta</div>
+          </div>
+          <div class="acao-meta">
+            <div class="acao-tag tag-who">
+              <svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>
+              Responsável pelo Mailing
+            </div>
+            <div class="acao-tag tag-when">
+              <svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+              20 de Abril
+            </div>
+            <div class="acao-tag tag-time">
+              <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><polyline points="12 7 12 12 15 15"/></svg>
+              ~1h para disparar
+            </div>
+          </div>
+        </div>
+        <button class="acao-expand-btn">
+          Ver como
+          <svg class="expand-arrow" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+      </div>
+      <div class="acao-detalhe">
+        <div class="acao-detalhe-inner">
+          <div class="passos">
+            <div class="passo">
+              <div class="passo-n">1</div>
+              <div class="passo-body">
+                <div class="passo-title">Este e-mail precisa ter algo NOVO em relação ao primeiro</div>
+                <div class="passo-desc">Opções: atração confirmada (grupo de Taiko, se básico validado), laboratório específico que vai abrir, depoimento de ex-aluno no mercado, número de inscrições já recebidas.</div>
+              </div>
+            </div>
+            <div class="passo">
+              <div class="passo-n">2</div>
+              <div class="passo-body">
+                <div class="passo-title">Assunto diferente do primeiro — criar urgência</div>
+                <div class="passo-desc">Sugestão: <code>Faltam 19 dias — inscrições se encerram em 30/04</code>. Prazo real cria urgência real. Sem prazo, não há motivo para agir agora.</div>
+              </div>
+            </div>
+            <div class="passo">
+              <div class="passo-n">3</div>
+              <div class="passo-body">
+                <div class="passo-title">Marcar na planilha quem abriu mas não inscreveu (prioridade de follow-up)</div>
+                <div class="passo-desc">Se usar MailerLite ou Brevo, ver o relatório de abertura. Escolas que abriram mas não se inscreveram recebem mensagem de WhatsApp pessoal antes do 3º envio.</div>
+              </div>
+            </div>
+          </div>
+          <div class="acao-aside">
+            <div class="aside-block">
+              <div class="aside-label">Por que o 2º envio é o mais importante?</div>
+              <div class="aside-content">
+                O 1º apresenta. O <strong>2º converte</strong>. O indeciso que abriu o primeiro e-mail mas não agiu ainda está considerando. Uma novidade concreta + urgência de prazo é o que move esse grupo.
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Ação 12 -->
+    <div class="acao-card" onclick="toggleAcao(this)">
+      <div class="acao-header">
+        <div class="acao-check" onclick="toggleDone(event,this)">
+          <svg class="acao-check-icon" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+        </div>
+        <div class="acao-main">
+          <div class="acao-top">
+            <div class="acao-num">12</div>
+            <div class="acao-titulo">Coordenadores postam pela 2ª vez com contagem regressiva</div>
+          </div>
+          <div class="acao-meta">
+            <div class="acao-tag tag-who">
+              <svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>
+              Todos os coordenadores de curso
+            </div>
+            <div class="acao-tag tag-when">
+              <svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+              20 de Abril (mesmo dia do mailing)
+            </div>
+            <div class="acao-tag tag-time">
+              <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><polyline points="12 7 12 12 15 15"/></svg>
+              3 minutos
+            </div>
+          </div>
+        </div>
+        <button class="acao-expand-btn">
+          Ver como
+          <svg class="expand-arrow" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+      </div>
+      <div class="acao-detalhe">
+        <div class="acao-detalhe-inner">
+          <div class="passos">
+            <div class="passo">
+              <div class="passo-n">1</div>
+              <div class="passo-body">
+                <div class="passo-title">Usar o story de contagem regressiva do kit</div>
+                <div class="passo-desc">Está na pasta do Drive enviada. Baixar no celular, postar no story do Instagram. Adicionar o sticker nativo de contagem regressiva do Instagram apontando para 09/05.</div>
+              </div>
+            </div>
+            <div class="passo">
+              <div class="passo-n">2</div>
+              <div class="passo-body">
+                <div class="passo-title">Postar no feed também — desta vez com um conteúdo de bastidores</div>
+                <div class="passo-desc">Foto real do laboratório do curso com legenda: <em>"É aqui que vai acontecer. Dia 09/05 a porta abre pra você."</em> Foto real converte mais que arte gráfica.</div>
+              </div>
+            </div>
+          </div>
+          <div class="acao-aside">
+            <div class="msg-copy">
+              <div class="msg-copy-label">Legenda pronta — 2ª postagem</div>
+              <div class="msg-text">"19 dias. É nesse laboratório que você pode estar no próximo semestre. Dia 09/05, a Fatec SP abre as portas — gratuito, das 9h às 16h. Link na bio para confirmar presença. Te espero aqui 👊 #FatecSP #PortasAbertas2026"</div>
+              <button class="copy-btn" onclick="copyMsg(event, this)">Copiar</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Ação 13 -->
+    <div class="acao-card" onclick="toggleAcao(this)">
+      <div class="acao-header">
+        <div class="acao-check" onclick="toggleDone(event,this)">
+          <svg class="acao-check-icon" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+        </div>
+        <div class="acao-main">
+          <div class="acao-top">
+            <div class="acao-num">13</div>
+            <div class="acao-titulo">Enviar 3ª onda de mailing com informações de logística</div>
+          </div>
+          <div class="acao-meta">
+            <div class="acao-tag tag-who">
+              <svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>
+              Responsável pelo Mailing
+            </div>
+            <div class="acao-tag tag-when">
+              <svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+              04 de Maio
+            </div>
+            <div class="acao-tag tag-time">
+              <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><polyline points="12 7 12 12 15 15"/></svg>
+              ~45 min
+            </div>
+          </div>
+        </div>
+        <button class="acao-expand-btn">
+          Ver como
+          <svg class="expand-arrow" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+      </div>
+      <div class="acao-detalhe">
+        <div class="acao-detalhe-inner">
+          <div class="passos">
+            <div class="passo">
+              <div class="passo-n">1</div>
+              <div class="passo-body">
+                <div class="passo-title">Foco 100% em logística — sem vender o evento</div>
+                <div class="passo-desc">Quem vai receber esse e-mail já decidiu vir (ou quase). O que falta é saber: como chegar, onde estacionar, o que trazer, a programação hora a hora.</div>
+              </div>
+            </div>
+            <div class="passo">
+              <div class="passo-n">2</div>
+              <div class="passo-body">
+                <div class="passo-title">Incluir link do Google Maps e opções de transporte público</div>
+                <div class="passo-desc">Metrô: Armênia (linha 3-vermelha), saída pelo Araçatuba, 5 min a pé. Ônibus: linhas que passam pela Av. Tiradentes. Copiar o link do Maps já com o destino marcado.</div>
+              </div>
+            </div>
+            <div class="passo">
+              <div class="passo-n">3</div>
+              <div class="passo-body">
+                <div class="passo-title">Enviar também para quem se inscreveu pelo formulário</div>
+                <div class="passo-desc">Exportar a planilha do Google Forms e enviar esse e-mail de logística para todos os inscritos. Esse grupo tem taxa de comparecimento maior quando recebe confirmação final.</div>
+              </div>
+            </div>
+          </div>
+          <div class="acao-aside">
+            <div class="aside-block">
+              <div class="aside-label">Conteúdo obrigatório</div>
+              <div class="aside-content">
+                📍 Endereço + link Maps<br>
+                🚇 Como chegar (metrô/ônibus)<br>
+                ⏰ Programação hora a hora<br>
+                📋 O que trazer (documento com foto)<br>
+                📞 Contato de emergência no dia
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<div class="fase-sep"></div>
+
+<!-- ════════════════════════════════
+     FASE 5 — O EVENTO
+════════════════════════════════ -->
+<div class="fase-header fase-evento">
+  <div class="fase-header-inner">
+    <div class="fase-badge">
+      <div class="fase-dot"></div>
+      <div class="fase-name">Fase 5 — O Evento</div>
+    </div>
+    <div class="fase-period" style="color:rgba(255,255,255,0.4)">09 de Maio de 2026</div>
+  </div>
+</div>
+
+<div class="evento-section reveal">
+  <div class="evento-inner">
+    <div class="evento-left">
+      <div class="section-label">Fase Final</div>
+      <h2 class="section-title" style="color:white">No dia: uma ação<br>que ninguém planeja.</h2>
+      <p class="section-desc" style="max-width:360px">Fazer tudo acima e no dia do evento não registrar nada é desperdiçar o melhor conteúdo da campanha.</p>
+    </div>
+    <div class="evento-acoes">
+      <div class="evento-acao">
+        <div class="evento-acao-icon">📸</div>
+        <div class="evento-acao-text">
+          <strong>Designar 1 pessoa para filmar</strong>
+          Só ela. Com roteiro de 5 cenas: entrada, laboratório, depoimento de visitante, atração cultural, encerramento.
+        </div>
+      </div>
+      <div class="evento-acao">
+        <div class="evento-acao-icon">📲</div>
+        <div class="evento-acao-text">
+          <strong>Postar 3 stories ao vivo</strong>
+          Entrada do evento, lab mais impressionante, depoimento espontâneo. Sem roteiro — só autenticidade.
+        </div>
+      </div>
+      <div class="evento-acao">
+        <div class="evento-acao-icon">📊</div>
+        <div class="evento-acao-text">
+          <strong>Contar e registrar tudo</strong>
+          Total de visitantes por período. Escolas presentes. Inscrições x comparecimentos. Base para o próximo Portas Abertas.
+        </div>
+      </div>
+      <div class="acao-card" style="border-radius:4px;width:100%" onclick="toggleAcao(this)">
+        <div class="acao-header" style="padding:16px 18px">
+          <div class="acao-check" onclick="toggleDone(event,this)">
+            <svg class="acao-check-icon" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+          </div>
+          <div class="acao-main">
+            <div class="acao-top">
+              <div class="acao-num" style="background:var(--verde)">14</div>
+              <div class="acao-titulo" style="color:white;font-size:13px">Registrar e publicar o resumo do evento em até 48h</div>
+            </div>
+          </div>
+          <button class="acao-expand-btn" style="color:rgba(255,255,255,0.4)">
+            Ver como
+            <svg class="expand-arrow" viewBox="0 0 24 24" style="stroke:rgba(255,255,255,0.4)"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+        </div>
+        <div class="acao-detalhe">
+          <div class="acao-detalhe-inner" style="padding-left:24px">
+            <div class="passos">
+              <div class="passo">
+                <div class="passo-n" style="background:var(--verde)">1</div>
+                <div class="passo-body">
+                  <div class="passo-title">Post de agradecimento no Instagram até 11/05</div>
+                  <div class="passo-desc">Com fotos reais do evento, número de visitantes e frase de encerramento. Isso fecha o ciclo publicamente e constrói credibilidade para o próximo evento.</div>
+                </div>
+              </div>
+              <div class="passo">
+                <div class="passo-n" style="background:var(--verde)">2</div>
+                <div class="passo-body">
+                  <div class="passo-title">E-mail de agradecimento para todas as escolas que vieram</div>
+                  <div class="passo-desc">Curto. Direto. Com foto do grupo da escola se tiver. Esse e-mail constrói o relacionamento que faz a escola voltar no próximo ano.</div>
+                </div>
+              </div>
+              <div class="passo">
+                <div class="passo-n" style="background:var(--verde)">3</div>
+                <div class="passo-body">
+                  <div class="passo-title">Reunião de retrospectiva com a comissão em 2 semanas</div>
+                  <div class="passo-desc">O que funcionou. O que não funcionou. Número final de visitantes. Recomendações para o próximo evento. Documento de 1 página para não perder o aprendizado.</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- PROGRESS BAR BOTTOM -->
+<div class="progress-section">
+  <div class="progress-inner">
+    <div class="prog-label">Progresso: <span id="prog-done">0</span> de 14 ações</div>
+    <div class="prog-bar-bg">
+      <div class="prog-bar-fill" id="prog-fill"></div>
+    </div>
+    <div class="prog-pct" id="prog-pct">0%</div>
+  </div>
+</div>
+
+<footer>
+  <img src="data:image/png;base64,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aYT+TUQcR9MonpYthT5LnffJ7t74YTQdmfsR8VnRomhtJoRthk7pMn6IJnRNShfC1dJ9cWd3bzyKZgZ/J4bVR1hW7wZ1hS9YoTQiczyQEPZzRDzuwygUdUkjysfR/K6Notl/eT/92effuV650Cm9H03H9E7RorrvRTQzwY8dolGX6XLEaJYk7kQTwsz+Xu5VpDa+j4O6wheswUwIm3Yo+tLAvoimQXzcxwaR+qQOzeP0ijSbshXNpve70Z/fvd66EKbvRtMpvR+C9JR2t2dm+gib8W7gYejX+5tIbXnfH0UjfMEapQbkcWpgp0ulamtgf46ISbjxU4F0jR7P/m+pQ383mhMU70bEKISyTkpLuB9Gs1fmbrxbXjq0GTHt7gCkn+10T+sQr/dX0QSuSd8D16x5w9fztVYBPZca2NkOxU40o/NdbGBfRHPTn0TTIHZ9aUvX26euf/96L3XoL71O0uEPEU0w25z5v6YhLTfXSzLzc9ufmdGcvmobxLrJ03jX5k7KlkIJA7ne38Tv+xddv3+vxXtv374tXQMM1oUlUluRP4y9iIjTaBr8SUQ8ryBsAQOX2s5pu1nb8tIX0bS5z6Npcydly6HrKl5O/TSaPsYkmmt9kGHrIuELOibNjG3Gu2VSm+n/WqSxnT7Y9CzejfxPIuJMIwj0SeqgbkbTSZ3+/W6UOUnxVTSdzunreUScandZlQt9hZLLqd9Eur7DtT4X4QsA6LWZYBbxxyWlWy3f7jS9LvtvqwcoLgWzUXrdnfm/NuP3y6tvMjtwe/G/T+1HXIzwBQAAkMGfShcAAAAwBMIXAABABsIXAABABsIXAABABsIXAABABsIXAABABsIXAABABsIXAABABsIXAABABsIXAABABsIXAABABsIXAABABsIXAABABsIXAABABsIXAABABsIXAABABsIXAABABsIXAABABsIXAABABsIXAABABsIXAABABsIXAABABsIXAABABsIXAABABsIXAABABsIXAABABsIXAABABsIXAABABsIXAABABsIXAABABsIXAABABsIXAABABsIXAABABsIXAABABsIXAABABsIXAABABu+XLgAAcjgZbdyOiNvpP+9d8c9eR8TL9Pdn22fnr9deGACD8d7bt29L1wAAK3Uy2vggIj6JJmRNXx8s+HZPIuJZej0RyABYlPAFQG+cjDYe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hC8AAIAMhC8AAIAMhC8AAIAMhC8AAIAMhC8AAIAMhC8AAIAMhC8AAIAMhC8AAIAMhC8AAIAMhC8AAIAMhC8AAIAMhC8AAIAMhC8AAIAMhC8AAIAMhC8AAIAMhC8AAIAMhC8AAIAMhC8AAIAMhC8AAIAMhC8AAIAMhC8AAIAMhC8AAIAMhC8AAIAMhC8AAIAMhC8AAIAMhC8AAIAMhC8AAIAMhC8AAIAMhC8AAIAMhC8AAIAMhC8AAIAMhC8AAIAMhC8AAIAMhC8AAIAMhC8AAIAMhC8AAIAMhC8AAIAMhC8AAIAMhC8AAIAMhC8AAIAMhC8AAIAMhC8AAIAMhC8AAIAMhC8AAIAMhC8AAIAMhC8AAIAMhC8AAIAMhC8AAIAMhC8AAIAMhC8AAIAMhC8AAIAMhC8AAIAMhC8AAIAMhC8AAIAMhC8AAIAMhC8AAIAMhC8AAIAMhC8AAIAMhC8AAIAMhC8AAIAMhC8AAIAMhC8AAIAMhC8AAIAMhC8AAIAMhC8AAIAMhC8AAIAMhC8AAIAMhC8AAIAMhC8AAIAMhC8AAIAMhC8AAIAMhC8AAIAMhC8AAIAMhC8AAIAMhC8AAIAMhC8AAIAMhC8AAIAMhC8AAIAMhC8AAIAMhC8AAIAMhC8AAIAMhC8AAIAMhC8AAIAMhC8AAIAMhC8AAIAMhC8AAIAMhC8AAIAMhC8AAIAMhC8AAIAMhC8AAIAMhC8AAIAMhC8AAIAMhC8AAIAMhC8AAIAMhC8AAIAMhC8AAIAMhC8AAIAMhC8AAIAMhC8AAIAMhC8AAIAMhC8AAIAMhC8AAIAMhC8AAIAMhC8AAIAMhC8AAIAMhC8AAIAMhC8AAIAMhC8AAIAMhC8AAIAMhC8AAIAMhC8AAIAMhC8AAIAMhC8AAIAMhC8AAIAMhC8AAIAMhC8AAIAMhC8AAIAMhC8AAIAMhC8AAIAMhC8AAIAMhC8AAIAMhC8AAIAMhC8AAIAMhC8AAIAMhC8AAIAMhC8AAIAMhC8AAIAMhC8AAIAMhC8AAIAMhC8AAIAMhC8AAIAMhC8AAIAMhC8AAIAMhC8AAIAMhC8AAIAMhC8AAIAMhC8AAIAMhC8AAIAMhC8AAIAMhC8AAIAMhC8AAIAMhC8AAIAMhC8AAIAMhC8AAIAMhC8AAIAMhC8AAIAMhC8AAIAMhC8AAIAMhC8AAIAMhC8AAIAMhC8AAIAMhC8AAIAMhC8AAIAMhC8AAIAMhC8AAIAMhC8AAIAMhC8AAIAMhC8AAIAMhC8AAIAMhC8AAIAMhC8AAIAMhC8AAIAMhC8AAIAMhC8AAIAMhC8AAIAMhC8AAIAMhC8AAIAMhC8AAIAMhC8AAIAMhC8AAIAMhC8AAIAMhC8AAIAM/j/+Ti7rSr+1JwAAAABJRU5ErkJggg==" alt="Fatec SP">
+  <span>Guia de Ações · Portas Abertas 2026 · Fatec São Paulo</span>
+</footer>
+
+<script>
+// Scroll progress
+window.addEventListener('scroll', () => {
+  const d = document.documentElement;
+  const prog = (d.scrollTop / (d.scrollHeight - d.clientHeight)) * 100;
+  document.getElementById('progress-bar').style.width = prog + '%';
+});
+
+// Reveal
+const obs = new IntersectionObserver(els => {
+  els.forEach(e => { if(e.isIntersecting){ e.target.classList.add('visible'); obs.unobserve(e.target); } });
+}, {threshold:0.08});
+document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+
+// Toggle expand
+function toggleAcao(card) {
+  if (event.target.closest('.acao-check') || event.target.closest('.copy-btn')) return;
+  card.classList.toggle('open');
+}
+
+// Toggle done
+function toggleDone(e, checkEl) {
+  e.stopPropagation();
+  const card = checkEl.closest('.acao-card');
+  card.classList.toggle('done');
+  if(card.classList.contains('done')) {
+    card.classList.remove('open');
+    card.style.borderLeftColor = 'var(--verde)';
+  } else {
+    card.style.borderLeftColor = '';
+  }
+  updateProgress();
+}
+
+// Progress
+function updateProgress() {
+  const total = document.querySelectorAll('.acao-card').length;
+  const done = document.querySelectorAll('.acao-card.done').length;
+  const pct = Math.round((done/total)*100);
+  document.getElementById('prog-done').textContent = done;
+  document.getElementById('prog-fill').style.width = pct + '%';
+  document.getElementById('prog-pct').textContent = pct + '%';
+  document.getElementById('nav-count').textContent = done;
+}
+
+// Copy message
+function copyMsg(e, btn) {
+  e.stopPropagation();
+  const txt = btn.previousElementSibling.textContent;
+  navigator.clipboard.writeText(txt).then(() => {
+    btn.textContent = 'Copiado!';
+    btn.classList.add('copied');
+    setTimeout(() => { btn.textContent = 'Copiar'; btn.classList.remove('copied'); }, 2000);
+  });
+}
+</script>
+</body>
+</html>
